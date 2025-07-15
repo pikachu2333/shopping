@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:test6_26/page/home/view/home_page.dart';
 import 'package:test6_26/page/pagetwo/provider/page_two_provider.dart';
 
 import '../../home/provider/home_provider.dart';

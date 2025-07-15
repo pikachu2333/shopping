@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test6_26/page/pagetwo/widget/hello.dart';
-import '../../home/provider/home_provider.dart';
 import '../provider/page_two_provider.dart';
 
 
 class PagetwoPage extends GetView<PageTwoProvider> {
   final PageTwoProvider pagetwoProvider = Get.put(PageTwoProvider());
-  PagetwoPage({Key? key}) : super(key: key);
+  PagetwoPage({super.key});
 
   @override
   Widget build(BuildContext context) {

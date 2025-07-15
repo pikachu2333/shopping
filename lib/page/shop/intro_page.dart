@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test6_26/page/home/view/home_page.dart';
-import 'package:test6_26/page/shop/shop_home/shop_home_page.dart';
 
 class IntroPage extends StatelessWidget {
-  const IntroPage({Key? key}) : super(key: key);
+  const IntroPage({super.key});
 
   @override
   Widget build(BuildContext context) {

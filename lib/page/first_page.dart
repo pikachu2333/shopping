@@ -1,10 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:test6_26/page/home/view/home_page.dart';
 import 'package:test6_26/page/shop/intro_page.dart';
 import 'package:test6_26/page/note_page.dart';
+import 'package:test6_26/theme/theme_provider.dart';
 
 class first_page extends StatefulWidget {
-  first_page({Key? key}) : super(key: key);
+  const first_page({super.key});
 
   @override
   State<first_page> createState() => _first_pageState();
@@ -25,13 +28,13 @@ class _first_pageState extends State<first_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.yellow,
-          //title: Text("Yuni")
+        //title: Text("Yuni")
       ),
       drawer: Drawer(
-        backgroundColor: Colors.deepPurple[100],
+        backgroundColor: Theme.of(context).colorScheme.background,
         child: Column(
           children: [
+
             DrawerHeader(child: Icon(Icons.favorite, size: 50)),
             ListTile(
               leading: Icon(Icons.home),
@@ -57,13 +60,22 @@ class _first_pageState extends State<first_page> {
                 Navigator.pushNamed(context, '/shop_page');
               },
             ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text("S E T T I N G S"),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/settings_page');
+              }),
+
+
           ],
         ),
       ),
       body: _page[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        selectedItemColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        selectedItemColor: Theme.of(context).colorScheme.secondary,
         unselectedItemColor: Theme.of(context).colorScheme.onSurface,
         currentIndex: _selectedIndex,
         onTap: _navigateBottomBar,

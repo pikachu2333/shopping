@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:test6_26/components/my_list_tile.dart';
 
 class MyDrawer extends StatelessWidget {
+  const MyDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

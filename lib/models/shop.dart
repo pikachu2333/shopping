@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:test6_26/models/product.dart';
 
-import '../db/DBManager.dart';
+import '../db/db_manager.dart';
 
 
 class Shop extends ChangeNotifier{
@@ -16,7 +16,7 @@ class Shop extends ChangeNotifier{
   double _price = 0.0;
   String _description = '';
   String _imagePath = '';
-  List<Product> _cart = [];
+  final List<Product> _cart = [];
   List<Product> get shop => _shop;
   List<Product> get cart => _cart;
   List<Product>? _productList = [];

@@ -5,7 +5,7 @@ import 'package:test6_26/util/dialog_box.dart';
 import '../bean/ToDoListBean.dart';
 
 class NotePage extends StatefulWidget {
-  const NotePage({Key? key}) : super(key: key);
+  const NotePage({super.key});
 
   @override
   State<NotePage> createState() => _NotePageState();
@@ -51,9 +51,9 @@ class _NotePageState extends State<NotePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow[200],
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        backgroundColor: Colors.yellow[200],
+        backgroundColor: Theme.of(context).colorScheme.background,
       ),
 
       floatingActionButton: FloatingActionButton(

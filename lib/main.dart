@@ -4,20 +4,24 @@ import 'package:provider/provider.dart';
 import 'package:test6_26/models/shop.dart';
 import 'package:test6_26/page/first_page.dart';
 import 'package:test6_26/page/home/view/home_page.dart';
+import 'package:test6_26/page/login/view/login_page.dart';
+import 'package:test6_26/page/setting/view/setting_page.dart';
 import 'package:test6_26/page/shop/cart/cart_page.dart';
 import 'package:test6_26/page/shop/intro_page.dart';
 import 'package:test6_26/page/note_page.dart';
 import 'package:test6_26/page/shop/shop_home/shop_home_page.dart';
 import 'package:test6_26/page/shop/shop_home/shop_home_provider.dart';
 import 'package:test6_26/route/app_pages.dart';
+import 'package:test6_26/theme/dark_mode.dart';
 import 'package:test6_26/theme/light_mode.dart';
+import 'package:test6_26/theme/theme_provider.dart';
 
-import 'db/SqlitePage.dart';
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
         ChangeNotifierProvider(create: (context) => Shop()),
         ChangeNotifierProvider(create: (context) => ShopHomeProvider()),
       ],
@@ -28,13 +32,13 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // 定义一个名为MyApp的常量构造函数，接受一个可选的key参数
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: lightMode,
-      home: first_page(),
+      theme: Provider.of<ThemeProvider>(context).themeData,
+      home: LoginPage(),
       routes: {
         '/first_page': (context) => first_page(),
         '/home_page': (context) => HomePage(),
@@ -42,6 +46,7 @@ class MyApp extends StatelessWidget {
         '/shop_page': (context) => IntroPage(),
         '/shop_home_page': (context) => ShopHome(),
         '/cart_page': (context) => CartPage(),
+        '/settings_page':(context)=>SettingPage(),
       },
       getPages: AppPages.pages,
     );

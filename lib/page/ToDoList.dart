@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:slideable/slideable.dart';
 
 import '../bean/ToDoListBean.dart';
-import 'note_page.dart';
 
 class ToDoList extends StatelessWidget {
   final ToDoListBean toDoListBean;
@@ -30,6 +29,10 @@ class ToDoList extends StatelessWidget {
           ),
         ],
         child: Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.secondary,
+            borderRadius: BorderRadius.circular(12),
+          ),
           child: Padding(
             padding: const EdgeInsets.all(24.0),
             child: Row(
@@ -50,10 +53,6 @@ class ToDoList extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-          decoration: BoxDecoration(
-            color: Colors.yellow,
-            borderRadius: BorderRadius.circular(12),
           ),
         ),
       ),

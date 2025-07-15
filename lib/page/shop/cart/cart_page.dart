@@ -118,7 +118,7 @@ class _CartPageState extends State<CartPage>
             padding: const EdgeInsets.all(5.0),
             child: MyButton(
               onTap: () => payButtonPressed(context),
-              child: Container(
+              child: SizedBox(
                 width: 300,
                 height: 30,
                 child: Center(

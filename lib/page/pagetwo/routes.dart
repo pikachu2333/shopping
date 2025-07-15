@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:test6_26/page/pagetwo/view/page_two_page.dart';
 
 class PageTwoRoutes {

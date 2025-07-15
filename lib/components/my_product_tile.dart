@@ -6,7 +6,7 @@ import 'package:test6_26/models/shop.dart';
 class MyProductTile extends StatelessWidget {
   final Product product;
 
-  const MyProductTile({Key? key, required this.product}) : super(key: key);
+  const MyProductTile({super.key, required this.product});
 
   void addToCart(BuildContext context) {
     showDialog(
@@ -85,7 +85,7 @@ class MyProductTile extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('\$' + product.price.toStringAsFixed(2)),
+              Text('\$${product.price.toStringAsFixed(2)}'),
               Container(
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.secondary,

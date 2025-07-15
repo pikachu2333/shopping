@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../../../models/shop.dart';
 
 class CartSearchDialogPage extends StatelessWidget {
-  const CartSearchDialogPage({Key? key}) : super(key: key);
+  const CartSearchDialogPage({super.key});
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -25,7 +25,7 @@ class CartSearchDialogPage extends StatelessWidget {
                 if (shop.searchList!.isEmpty) {
                   return Center(child: Text('没有找到商品'));
                 } else {
-                  return Container(
+                  return SizedBox(
                     height: 200,
                     width: 200,
                     child: ListView.builder(

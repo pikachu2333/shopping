@@ -5,7 +5,7 @@ import 'package:test6_26/components/my_product_tile.dart';
 import 'package:test6_26/models/shop.dart';
 
 class ShopPage extends StatelessWidget {
-  const ShopPage({Key? key}) : super(key: key);
+  const ShopPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:test6_26/models/shop.dart';
 
 class AddProductPage extends StatelessWidget {
-  const AddProductPage({Key? key}) : super(key: key);
+  const AddProductPage({super.key});
 
   @override
   Widget build(BuildContext context) {

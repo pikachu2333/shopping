@@ -6,7 +6,7 @@ import 'package:test6_26/page/home/provider/home_provider.dart';
 // 定义HomePage类，继承自StatelessWidget
 class HomePage extends StatelessWidget {
   // 构造函数
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   // 构建函数
   @override

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:test6_26/models/product.dart';
 import 'package:test6_26/models/shop.dart';
 
-import 'AddProductPage.dart';
-import 'DBManager.dart';
+import 'add_product_page.dart';
 
 class SqlitePage extends StatelessWidget {
-  const SqlitePage({Key? key}) : super(key: key);
+  const SqlitePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -85,10 +83,10 @@ class SqlitePage extends StatelessWidget {
                 ?.map(
                   (e) => TableRow(
                     children: [
-                      TableCell(child: Text("${e.name}")),
+                      TableCell(child: Text(e.name)),
                       TableCell(child: Text("${e.price}")),
-                      TableCell(child: Text("${e.description}")),
-                      TableCell(child: Text("${e.imagePath}")),
+                      TableCell(child: Text(e.description)),
+                      TableCell(child: Text(e.imagePath)),
                       TableCell(
                         child: TextButton(
                           onPressed: () {
@@ -108,7 +106,7 @@ class SqlitePage extends StatelessWidget {
                     ],
                   ),
                 )
-                .toList(),
+                ,
           ],
         );
       },

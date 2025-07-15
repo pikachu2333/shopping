@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:test6_26/page/shop/intro_page.dart';
 import 'package:test6_26/page/shop/shop_home/shop_home_provider.dart';
 import 'package:test6_26/page/shop/shop_page.dart';
 
@@ -8,7 +7,7 @@ import '../../../components/bottom_nav_bar.dart';
 import '../cart/cart_page.dart';
 
 class ShopHome extends StatelessWidget {
-  const ShopHome({Key? key}) : super(key: key);
+  const ShopHome({super.key});
   @override
   Widget build(BuildContext context) {
     return Consumer<ShopHomeProvider>(
