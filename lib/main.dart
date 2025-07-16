@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:test6_26/models/shop.dart';
+import 'package:test6_26/page/auth/view/auth_page.dart';
 import 'package:test6_26/page/first_page.dart';
 import 'package:test6_26/page/home/view/home_page.dart';
 import 'package:test6_26/page/login/view/login_page.dart';
@@ -12,12 +13,16 @@ import 'package:test6_26/page/note_page.dart';
 import 'package:test6_26/page/shop/shop_home/shop_home_page.dart';
 import 'package:test6_26/page/shop/shop_home/shop_home_provider.dart';
 import 'package:test6_26/route/app_pages.dart';
-import 'package:test6_26/theme/dark_mode.dart';
-import 'package:test6_26/theme/light_mode.dart';
 import 'package:test6_26/theme/theme_provider.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     MultiProvider(
       providers: [
@@ -38,7 +43,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: Provider.of<ThemeProvider>(context).themeData,
-      home: LoginPage(),
+      home: AuthPage(),
       routes: {
         '/first_page': (context) => first_page(),
         '/home_page': (context) => HomePage(),

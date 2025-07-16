@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,17 +25,21 @@ class _first_pageState extends State<first_page> {
 
   final List _page = [HomePage(), NotePage(), IntroPage()];
 
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [IconButton(onPressed: signUserOut, icon: Icon(Icons.logout))],
         //title: Text("Yuni")
       ),
       drawer: Drawer(
         backgroundColor: Theme.of(context).colorScheme.background,
         child: Column(
           children: [
-
             DrawerHeader(child: Icon(Icons.favorite, size: 50)),
             ListTile(
               leading: Icon(Icons.home),
@@ -66,9 +71,8 @@ class _first_pageState extends State<first_page> {
               onTap: () {
                 Navigator.pop(context);
                 Navigator.pushNamed(context, '/settings_page');
-              }),
-
-
+              },
+            ),
           ],
         ),
       ),
