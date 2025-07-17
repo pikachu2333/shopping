@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "296547725688",
+    "project_id": "shopping-pikachu",
+    "storage_bucket": "shopping-pikachu.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296547725688:android:6615b521f26ecd3852d88d",
+        "android_client_info": {
+          "package_name": "com.example.test6_26"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeZXvb3RmJrt98DarFCJzBrbMtL9C35sA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
