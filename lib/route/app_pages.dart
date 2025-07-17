@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import 'package:test6_26/page/home/routes.dart';
 import 'package:test6_26/page/login/routes.dart';
 import 'package:test6_26/page/pagetwo/routes.dart';
@@ -14,6 +15,7 @@ class AppPages{
     PageTwoRoutes.pageTwo,
     RegisterPageRoutes.registerPage,
     LoginPageRoutes.loginPage,
+
 
 
 

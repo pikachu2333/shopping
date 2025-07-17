@@ -4,6 +4,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:test6_26/components/my_button.dart';
 import 'package:test6_26/components/my_textfield.dart';
 import '../../../components/square_tile.dart';
+import '../../service/google_service.dart';
 import '../provider/register_page_controller.dart';
 
 class HelloWidget extends StatelessWidget {
@@ -121,9 +122,9 @@ class HelloWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SquareTile(imagePath: "lib/img/img_apple_logo.png"),
+                    SquareTile(imagePath: "lib/img/img_google_logo.png",onTap: ()=>GoogleService().signInWithGoogle(),),
                     SizedBox(width: 25),
-                    SquareTile(imagePath: "lib/img/img_google_logo.png"),
+                    SquareTile(imagePath: "lib/img/img_apple_logo.png",onTap: ()=>{},),
                   ],
                 ),
               ],

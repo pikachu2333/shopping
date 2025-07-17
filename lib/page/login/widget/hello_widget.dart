@@ -4,6 +4,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:test6_26/components/my_button.dart';
 import 'package:test6_26/components/my_textfield.dart';
 import 'package:test6_26/page/login/provider/login_page_controller.dart';
+import 'package:test6_26/service/google_service.dart';
 
 import '../../../components/square_tile.dart';
 
@@ -81,7 +82,7 @@ class HelloWidget extends StatelessWidget {
                 //注册按钮
                 SizedBox(height: 25),
                 MyButton(
-                  onTap: ()=>Get.toNamed('/register_page'),
+                  onTap: () => Get.toNamed('/register_page'),
                   child: Text(
                     '注册',
                     style: TextStyle(
@@ -122,9 +123,15 @@ class HelloWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SquareTile(imagePath: "lib/img/img_apple_logo.png"),
+                    SquareTile(
+                      imagePath: "lib/img/img_google_logo.png",
+                      onTap: () => GoogleService().signInWithGoogle(),
+                    ),
                     SizedBox(width: 25),
-                    SquareTile(imagePath: "lib/img/img_google_logo.png"),
+                    SquareTile(
+                      imagePath: "lib/img/img_apple_logo.png",
+                      onTap: () {},
+                    ),
                   ],
                 ),
               ],
