@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:test6_26/page/ToDoList.dart';
+import 'package:test6_26/bean/ToDoList.dart';
 import 'package:test6_26/util/dialog_box.dart';
 
-import '../bean/ToDoListBean.dart';
+import '../../bean/ToDoListBean.dart';
 
 class NotePage extends StatefulWidget {
   const NotePage({super.key});

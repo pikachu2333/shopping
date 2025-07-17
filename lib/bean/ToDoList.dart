@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:slideable/slideable.dart';
 
-import '../bean/ToDoListBean.dart';
+import 'ToDoListBean.dart';
 
 class ToDoList extends StatelessWidget {
   final ToDoListBean toDoListBean;

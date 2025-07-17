@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test6_26/page/home/view/home_page.dart';
 import 'package:test6_26/page/shop/intro_page.dart';
-import 'package:test6_26/page/note_page.dart';
+import 'package:test6_26/page/note/note_page.dart';
 import 'package:test6_26/theme/theme_provider.dart';
 
 class first_page extends StatefulWidget {
@@ -25,6 +25,7 @@ class _first_pageState extends State<first_page> {
 
   final List _page = [HomePage(), NotePage(), IntroPage()];
 
+  final user = FirebaseAuth.instance.currentUser!;
   void signUserOut() {
     FirebaseAuth.instance.signOut();
   }
@@ -33,7 +34,10 @@ class _first_pageState extends State<first_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [IconButton(onPressed: signUserOut, icon: Icon(Icons.logout))],
+        actions: [
+          Center(child: Text("登录用户  " + user.email!,style: TextStyle(fontSize: 15),)),
+          IconButton(onPressed: signUserOut, icon: Icon(Icons.logout)),
+        ],
         //title: Text("Yuni")
       ),
       drawer: Drawer(
