@@ -1,13 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:provider/provider.dart';
 import 'package:test6_26/page/home/view/home_page.dart';
 import 'package:test6_26/page/shop/intro_page.dart';
 import 'package:test6_26/page/note/note_page.dart';
-import 'package:test6_26/theme/theme_provider.dart';
 
 class first_page extends StatefulWidget {
   const first_page({super.key});

@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
-import 'package:test6_26/page/auth/bingding.dart';
-import 'package:test6_26/page/auth/view/auth_page.dart';
+import 'package:test6_26/service/auth/view/auth_page.dart';
+import 'bingding.dart';
 
 
 class AuthPageRoutes {

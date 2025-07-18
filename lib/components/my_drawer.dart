@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:test6_26/components/my_list_tile.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -48,8 +50,9 @@ class MyDrawer extends StatelessWidget {
               icon: Icons.logout,
               onTap:
                   () => {
-                    Navigator.pop(context),
-                    Navigator.pushNamed(context, '/first_page'),
+                    // Navigator.pop(context),
+                    // Navigator.pushNamed(context, '/first_page'),
+                    Get.offAllNamed('/auth_page'),
                   },
             ),
           ),

@@ -5,7 +5,8 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:test6_26/components/my_button.dart';
 import 'package:test6_26/components/my_textfield.dart';
 import '../../../components/square_tile.dart';
-import '../../service/google_service.dart';
+import '../../../service/google_service.dart';
+
 import '../provider/register_page_controller.dart';
 
 class HelloWidget extends StatelessWidget {

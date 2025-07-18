@@ -6,7 +6,7 @@ class HomepageRoutes {
 
   static final  GetPage homePage= GetPage(
   name: homePageName,
-  page: () => const HomePage());
+  page: () =>  HomePage());
 
   static Future? toHomePage() async{
     return Get.toNamed(homePageName);

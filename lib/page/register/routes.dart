@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
-import 'package:test6_26/page/login/bingding.dart';
-import 'package:test6_26/page/login/view/login_page.dart';
-import 'package:test6_26/register/view/register_page.dart';
+
+import 'package:test6_26/page/register/view/register_page.dart';
 
 import 'bingding.dart';
 

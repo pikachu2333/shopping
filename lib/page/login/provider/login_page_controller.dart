@@ -4,14 +4,14 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-import '../../../register/view/register_page.dart';
+import '../../../service/auth/service/auth_service.dart';
 
 class LoginPageController extends GetxController {
   static String updateId = "loginPageControllerUpdateId";
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   get context => Get.context!;
-
+  final _auth = AuthService();
 
   void signUserIn() async {
     // 显示加载动画
@@ -23,9 +23,9 @@ class LoginPageController extends GetxController {
     );
     try {
       // 使用FirebaseAuth实例进行用户登录
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
+      await _auth.signInWithEmailPassword(
+        emailController.text,
+        passwordController.text,
       );
       // 关闭加载动画
       Navigator.pop(context);
