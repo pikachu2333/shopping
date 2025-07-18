@@ -5,6 +5,8 @@ import 'package:test6_26/page/home/view/home_page.dart';
 import 'package:test6_26/page/shop/intro_page.dart';
 import 'package:test6_26/page/note/note_page.dart';
 
+import '../../service/auth/service/auth_service.dart';
+
 class first_page extends StatefulWidget {
   const first_page({super.key});
 
@@ -23,9 +25,10 @@ class _first_pageState extends State<first_page> {
 
   final List _page = [HomePage(), NotePage(), IntroPage()];
 
-  final user = FirebaseAuth.instance.currentUser!;
+  final _auth = AuthService();
+  final User? user = FirebaseAuth.instance.currentUser;
   void signUserOut() {
-    FirebaseAuth.instance.signOut();
+    _auth.signOut();
 
   }
 
@@ -35,7 +38,7 @@ class _first_pageState extends State<first_page> {
       appBar: AppBar(
 
         actions: [
-          Center(child: Text("登录用户  " + user.email!,style: TextStyle(fontSize: 15),)),
+          Center(child: Text("登录用户  " + user!.email!,style: TextStyle(fontSize: 15),)),
           IconButton(onPressed: signUserOut, icon: Icon(Icons.logout)),
         ],
         //title: Text("Yuni")
