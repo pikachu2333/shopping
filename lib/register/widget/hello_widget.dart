@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -14,6 +15,16 @@ class HelloWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              FirebaseAuth.instance.signOut();
+            },
+            icon: Icon(Icons.logout),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -68,10 +79,7 @@ class HelloWidget extends StatelessWidget {
                         },
                         child: Text(
                           '已有一个账户,点击此处立即登录',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.blue,
-                          ),
+                          style: TextStyle(fontSize: 16, color: Colors.blue),
                         ),
                       ),
                     ],
@@ -122,9 +130,18 @@ class HelloWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SquareTile(imagePath: "lib/img/img_google_logo.png",onTap: ()=>GoogleService().signInWithGoogle(),),
+                    SquareTile(
+                      imagePath: "lib/img/img_google_logo.png",
+                      onTap: () {
+                        GoogleService().signInWithGoogle();
+                        Navigator.pop(context);
+                      },
+                    ),
                     SizedBox(width: 25),
-                    SquareTile(imagePath: "lib/img/img_apple_logo.png",onTap: ()=>{},),
+                    SquareTile(
+                      imagePath: "lib/img/img_apple_logo.png",
+                      onTap: () => {},
+                    ),
                   ],
                 ),
               ],

@@ -5,7 +5,7 @@ class HomeProvider extends GetxController {
   static HomeProvider get to => Get.find();
 
   static const String homepageId = 'homepageId';
-
+  get context => Get.context!;
   RxInt count = 0.obs;
 
   void increment() => count++;

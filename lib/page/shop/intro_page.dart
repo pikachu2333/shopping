@@ -6,7 +6,10 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+      ),
       body: Column(
         //crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -14,7 +17,13 @@ class IntroPage extends StatelessWidget {
           //logo
           Padding(
             padding: const EdgeInsets.all(20),
-            child: Image.asset('lib/img/img_logo.png', height: 240),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.secondary,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              padding: const EdgeInsets.all(25),
+                child: Image.asset('lib/img/img_logo.png', height: 240,fit: BoxFit.cover)),
           ),
 
           const SizedBox(height: 20),

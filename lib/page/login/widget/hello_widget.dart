@@ -125,7 +125,7 @@ class HelloWidget extends StatelessWidget {
                   children: [
                     SquareTile(
                       imagePath: "lib/img/img_google_logo.png",
-                      onTap: () => GoogleService().signInWithGoogle(),
+                      onTap: ()  =>   GoogleService().signInWithGoogle(),
                     ),
                     SizedBox(width: 25),
                     SquareTile(

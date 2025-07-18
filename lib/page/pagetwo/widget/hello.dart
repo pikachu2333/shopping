@@ -12,7 +12,7 @@ class HelloWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(controller.context).colorScheme.background,
       appBar: AppBar(title: const Text('跨页面-two')),
       body: Center(
         child: Column(
@@ -29,11 +29,11 @@ class HelloWidget extends StatelessWidget {
                 children: [
                   GetBuilder<HomeProvider>(
                     builder: (logic) {
-                      return Text('homePagecontroller: ${logic.count}');
+                      return Text('homePagecontroller: ${logic.count}',style: TextStyle(color: Theme.of(controller.context).colorScheme.inversePrimary),);
                     },
                   ),
 
-                  Obx(()=> Text('pageTwocontroller: ${controller.count}')),
+                  Obx(()=> Text('pageTwocontroller: ${controller.count}',style: TextStyle(color: Theme.of(controller.context).colorScheme.inversePrimary),)),
                 ],
               ),
             ),

@@ -36,7 +36,7 @@ class RegisterPageController extends GetxController {
           },
         );
       }
-      Get.toNamed('login_page');
+      Get.toNamed('auth_page');
       Get.snackbar(
         "注册成功",
         "恭喜您成功注册！",

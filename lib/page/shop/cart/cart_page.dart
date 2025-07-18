@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test6_26/components/my_button.dart';
+import 'package:test6_26/components/my_drawer.dart';
 import 'package:test6_26/models/product.dart';
 import 'package:test6_26/models/shop.dart';
 
@@ -82,6 +83,7 @@ class _CartPageState extends State<CartPage>
           ),
         ],
       ),
+      drawer: MyDrawer(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -122,7 +124,7 @@ class _CartPageState extends State<CartPage>
                 width: 300,
                 height: 30,
                 child: Center(
-                  child: Text("结算", style: TextStyle(fontSize: 20)),
+                  child: Text("结算", style: TextStyle(fontSize: 15,color: Theme.of(context).colorScheme.surface)),
                 ),
               ),
             ),

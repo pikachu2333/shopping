@@ -6,7 +6,7 @@ class PageTwoProvider extends GetxController {
   static const String PageTwoId = 'PageTwoId';
   RxInt count=0.obs;
   var msg='';
-
+  get context => Get.context!;
 
   void increment() => count++;
 

@@ -37,6 +37,7 @@ class _first_pageState extends State<first_page> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         actions: [
           Center(child: Text("登录用户  " + user.email!,style: TextStyle(fontSize: 15),)),
           IconButton(onPressed: signUserOut, icon: Icon(Icons.logout)),

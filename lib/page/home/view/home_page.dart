@@ -58,7 +58,7 @@ class HomePage extends StatelessWidget {
                         // 设置文本样式
                         style: TextStyle(
                           // 设置文本颜色
-                          color: Colors.black,
+                          color: Theme.of(cl.context).colorScheme.inversePrimary,
                         ),
                       ),
                     ),
