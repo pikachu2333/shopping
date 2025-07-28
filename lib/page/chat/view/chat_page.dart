@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:test6_26/components/chat_bubble.dart';
 import 'package:test6_26/components/my_textfield.dart';
 import 'package:test6_26/service/chat/chat_service.dart';
 
@@ -29,7 +30,11 @@ class ChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(receverEmail)),
+      appBar: AppBar(
+        title: Text(receverEmail),
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.grey,
+      ),
       body: Column(
         children: [Expanded(child: _buildMessageList()), _buildMessageInput()],
       ),
@@ -57,21 +62,50 @@ class ChatPage extends StatelessWidget {
 
   Widget _buildMessageItem(DocumentSnapshot doc) {
     Map<String, dynamic> data = doc.data()! as Map<String, dynamic>;
-    return Text(data['message']);
+    //is current user
+
+    bool isCurrentUser = data['senderID'] == _authService.currentUser!.uid;
+    //align message to the right if sender is the current user,otherwise align to the left
+    var alignment =
+        isCurrentUser ? Alignment.centerRight : Alignment.centerLeft;
+
+    return Container(
+      alignment: alignment,
+      child: Column(
+        crossAxisAlignment:
+            isCurrentUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+        children: [
+          ChatBubble(message: data["message"], isCurrentUser: isCurrentUser),
+        ],
+      ),
+    );
   }
 
   Widget _buildMessageInput() {
-    return Row(
-      children: [
-        Expanded(
-          child: MyTextField(
-            controller: _messageController,
-            hintText: "Typp a message",
-            obscureText: false,
+    return Padding(
+      padding: const EdgeInsets.all(50.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: MyTextField(
+              controller: _messageController,
+              hintText: "Type a message",
+              obscureText: false,
+            ),
           ),
-        ),
-        IconButton(onPressed: sendMessage, icon: Icon(Icons.arrow_upward)),
-      ],
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.green,
+              shape: BoxShape.circle,
+            ),
+            margin: EdgeInsets.only(right: 25),
+            child: IconButton(
+              onPressed: sendMessage,
+              icon: Icon(Icons.arrow_upward, color: Colors.white),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

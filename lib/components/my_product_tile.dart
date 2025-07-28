@@ -13,11 +13,14 @@ class MyProductTile extends StatelessWidget {
       context: context,
       builder:
           (context) => AlertDialog(
-            content: Text("是否添加到购物车"),
+            content: Padding(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: Text("是否添加到购物车",style: TextStyle(fontSize: 16),),
+            ),
             actions: [
               MaterialButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text("Cancel"),
+                child: Text("取消",style: TextStyle(fontSize: 14),),
               ),
               MaterialButton(
                 onPressed: () {
@@ -25,7 +28,7 @@ class MyProductTile extends StatelessWidget {
                   context.read<Shop>().addToCart(product);
                   context.read<Shop>().addData(product);
                 },
-                child: Text("Yes"),
+                child: Text("确定",style: TextStyle(fontSize: 14),),
               ),
             ],
           ),
