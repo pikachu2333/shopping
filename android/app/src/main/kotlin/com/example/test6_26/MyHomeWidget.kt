@@ -20,7 +20,7 @@ class MyHomeWidget : AppWidgetProvider() {
             val widgetData = HomeWidgetPlugin.getData(context)
             val views=RemoteViews(context.packageName, R.layout.my_home_widget).apply{
                 val textFromFlutterApp= widgetData.getString("text_from_flutter_app", null)
-                setTextViewText(R.id.text_id, textFromFlutterApp?:"No data from Flutter app")
+                //setTextViewText(R.id.text_id, textFromFlutterApp?:"No data from Flutter app")
             }
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }

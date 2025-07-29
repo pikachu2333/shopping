@@ -1,0 +1,4 @@
+<resources>
+    <!-- 夜间背景颜色 -->
+    <color name="day_background_color">#000000</color> <!-- 黑色 -->
+</resources>

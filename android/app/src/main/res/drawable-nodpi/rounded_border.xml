@@ -1,0 +1,6 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 设置边框颜色 -->
+    <solid android:color="@color/day_background_color"/> <!-- 背景颜色 -->
+    <stroke android:color="@color/day_background_color" android:width="0dp"/> <!-- 边框颜色和宽度 -->
+    <corners android:radius="16dp"/> <!-- 设置圆角半径 -->
+</shape>
