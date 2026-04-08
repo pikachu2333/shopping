@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -125,7 +126,18 @@ class HelloWidget extends StatelessWidget {
                   children: [
                     SquareTile(
                       imagePath: "lib/img/img_google_logo.png",
-                      onTap: ()  =>   GoogleService().signInWithGoogle(),
+                      onTap: () async {
+                        try {
+                          final result = await GoogleService().signInWithGoogle();
+                          if (result == null) {
+                            Get.snackbar('提示', '已取消 Google 登录');
+                          }
+                        } on FirebaseAuthException catch (e) {
+                          Get.snackbar('Google 登录失败', e.code);
+                        } catch (e) {
+                          Get.snackbar('Google 登录失败', e.toString());
+                        }
+                      },
                     ),
                     SizedBox(width: 25),
                     SquareTile(

@@ -1,74 +1,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/Widget.Android.AppWidget.Container"
-    android:layout_width="159dp"
-    android:layout_height="159dp"
-    android:orientation="vertical"
-    android:padding="0dp"
-    android:theme="@style/Theme.Android.AppWidgetContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/rounded_border"
-   >
+    android:orientation="vertical"
+    android:padding="16dp">
 
+    <TextView
+        android:id="@+id/widget_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="购物车"
+        android:textColor="#111111"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="88dp"
-        android:layout_height="24dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:padding="0dp">
+    <TextView
+        android:id="@+id/widget_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="0 件商品"
+        android:textColor="#333333"
+        android:textSize="14sp" />
 
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/img" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:layout_marginLeft="7dp"
-            android:text="与你视频"
-            android:textColor="?android:textColorPrimary"
-            android:textFontWeight="600"
-            android:textSize="14dp"/>
-
-
-
-
-    </LinearLayout>
-<!--    <TextView-->
-<!--        android:id="@+id/text_id"-->
-<!--        style="@style/Widget.Android.AppWidget.InnerView"-->
-<!--        android:layout_width="56dp"-->
-<!--        android:layout_height="20dp"-->
-<!--        android:layout_marginTop="2dp"-->
-<!--        android:contentDescription="@string/appwidget_text"-->
-<!--        android:text="@string/appwidget_text"-->
-<!--        android:textSize="24dp"-->
-<!--        android:textStyle="bold|italic" />-->
-
-    <Button
-        android:id="@+id/text_id"
-        android:layout_width="44dp"
-        android:layout_height="62dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginBottom="16dp"
-        android:background="@android:color/transparent"
-        android:padding="0dp"
-        android:text="新建通话"
+    <TextView
+        android:id="@+id/widget_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="¥0.00"
         android:textColor="#007AFF"
-        android:textFontWeight="600"
-        android:textSize="21dp"
-        android:textStyle="bold">
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-
-
-    </Button>
-
-
+    <TextView
+        android:id="@+id/text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="点击查看购物车"
+        android:textColor="#555555"
+        android:textSize="12sp" />
 
 </LinearLayout>

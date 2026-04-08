@@ -133,9 +133,17 @@ class HelloWidget extends StatelessWidget {
                   children: [
                     SquareTile(
                       imagePath: "lib/img/img_google_logo.png",
-                      onTap: () {
-                        GoogleService().signInWithGoogle();
-                        Navigator.pop(context);
+                      onTap: () async {
+                        try {
+                          final result = await GoogleService().signInWithGoogle();
+                          if (result == null) {
+                            Get.snackbar('提示', '已取消 Google 登录');
+                          }
+                        } on FirebaseAuthException catch (e) {
+                          Get.snackbar('Google 登录失败', e.code);
+                        } catch (e) {
+                          Get.snackbar('Google 登录失败', e.toString());
+                        }
                       },
                     ),
                     SizedBox(width: 25),

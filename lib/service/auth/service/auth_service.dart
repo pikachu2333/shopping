@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
@@ -22,8 +21,8 @@ class AuthService {
         'email': email,
       });
       return userCredential;
-    } on FirebaseAuthException catch (e) {
-      throw Exception(e.code);
+    } on FirebaseAuthException {
+      rethrow;
     }
   }
 
@@ -40,8 +39,8 @@ class AuthService {
         'email': email,
       });
       return userCredential;
-    } on FirebaseAuthException catch (e) {
-      throw Exception(e.code);
+    } on FirebaseAuthException {
+      rethrow;
     }
   }
 

@@ -16,6 +16,7 @@ import 'package:test6_26/service/auth/view/auth_page.dart';
 import 'package:test6_26/theme/theme_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'home_widget/my_home_widget.dart';
 
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(
@@ -26,6 +27,8 @@ void main() async {
   );
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await MyHomeWidgetSync.initialize();
+
   runApp(
     MultiProvider(
       providers: [

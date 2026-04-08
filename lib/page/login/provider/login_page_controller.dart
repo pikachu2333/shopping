@@ -34,11 +34,14 @@ class LoginPageController extends GetxController {
       Navigator.pop(context);
       // 根据错误代码进行不同的处理
       if (e.code == 'invalid-email') {
-        // 邮箱格式错误
         wrongEmailMessage();
-      } else if (e.code == 'invalid-credential') {
-        // 密码错误
+      } else if (e.code == 'invalid-credential' || e.code == 'wrong-password' || e.code == 'user-not-found') {
         wrongPasswordMessage();
+      } else {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(title: Text('登录失败: ${e.code}')),
+        );
       }
     }
   }

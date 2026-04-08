@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:test6_26/models/product.dart';
 
 import '../db/db_manager.dart';
+import '../home_widget/my_home_widget.dart';
 
 
 class Shop extends ChangeNotifier{
@@ -27,21 +30,34 @@ class Shop extends ChangeNotifier{
   double get price => _price;
   String get description => _description;
   String get imagePath => _imagePath;
+  void _syncHomeWidget() {
+    final count = _cart.length;
+    final total = _cart.fold<double>(0, (sum, item) => sum + item.price);
+
+    unawaited(
+      MyHomeWidgetSync.syncCartData(
+        count: count,
+        total: '¥${total.toStringAsFixed(2)}',
+      ),
+    );
+  }
 
 
-// 向购物车中添加商品
   void addToCart(Product product) {
     // 将商品添加到购物车
     _cart.add(product);
+    _syncHomeWidget();
    // 通知监听器
    notifyListeners();
   }
   void removeFromCart(Product product) {
     _cart.remove(product);
+    _syncHomeWidget();
     notifyListeners();
   }
   void clearFromCart(Product product) {
     _cart.clear();
+    _syncHomeWidget();
     notifyListeners();
   }
 
