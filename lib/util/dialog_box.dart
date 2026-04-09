@@ -18,7 +18,7 @@ class _dialog_boxState extends State<dialog_box> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Colors.yellow,
+      backgroundColor: Theme.of(context).colorScheme.background,
       content: SizedBox(
         height: 120,
         child: Column(

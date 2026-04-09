@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:slideable/slideable.dart';
-
 import 'ToDoListBean.dart';
 
 class ToDoList extends StatelessWidget {
   final ToDoListBean toDoListBean;
-  Function(bool?)? onChanged;
-  Function() deleteFunction;
+  final Function(bool?)? onChanged;
+  final Function() deleteFunction;
 
-  ToDoList({
+  const ToDoList({
     super.key,
     required this.toDoListBean,
     required this.onChanged,
@@ -19,15 +17,30 @@ class ToDoList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 25.0, right: 25, top: 25),
-      child: Slideable(
-        items: [
-          ActionItems(
-            radius: BorderRadius.circular(12),
-            backgroudColor: Colors.red,
-            icon: Icon(Icons.delete),
-            onPress: deleteFunction,
+      // 1. 使用 Dismissible 替换 Slideable
+      child: Dismissible(
+        // 关键：Key 必须唯一且与数据绑定，防止删除后列表错位
+        key: ValueKey(toDoListBean.taskName),
+
+        // 滑动方向：从右向左滑
+        direction: DismissDirection.endToStart,
+
+        // 滑动时的背景（通常是红色删除底色）
+        background: Container(
+          decoration: BoxDecoration(
+            color: Colors.red,
+            borderRadius: BorderRadius.circular(12),
           ),
-        ],
+          alignment: Alignment.centerRight,
+          padding: const EdgeInsets.only(right: 20),
+          child: const Icon(Icons.delete, color: Colors.white),
+        ),
+
+        // 确认删除后的回调
+        onDismissed: (direction) {
+          deleteFunction();
+        },
+
         child: Container(
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.secondary,
@@ -35,23 +48,29 @@ class ToDoList extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.all(24.0),
-            child: Row(
-              children: [
-                Checkbox(
-                  value: toDoListBean.taskCompleted,
-                  onChanged: onChanged,
-                  activeColor: Colors.black,
-                ),
-                Text(
-                  toDoListBean.taskName,
-                  style: TextStyle(
-                    decoration:
-                        toDoListBean.taskCompleted
+            // 2. 局部刷新监听
+            child: ValueListenableBuilder<bool>(
+              valueListenable: toDoListBean.isCompletedNotifier,
+              builder: (context, isCompleted, child) {
+                return Row(
+                  children: [
+                    Checkbox(
+                      // 3. 注意：这里必须用 builder 传回来的 isCompleted
+                      value: isCompleted,
+                      onChanged: onChanged,
+                      activeColor: Colors.black,
+                    ),
+                    Text(
+                      toDoListBean.taskName,
+                      style: TextStyle(
+                        decoration: isCompleted
                             ? TextDecoration.lineThrough
                             : TextDecoration.none,
-                  ),
-                ),
-              ],
+                      ),
+                    ),
+                  ],
+                );
+              },
             ),
           ),
         ),

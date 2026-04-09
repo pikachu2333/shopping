@@ -19,7 +19,7 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:label="test6_26">
+        android:label="shopping">
         <receiver
             android:name=".MyHomeWidget"
             android:exported="true">
@@ -31,7 +31,6 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/my_home_widget_info" />
         </receiver>
-
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

@@ -65,14 +65,14 @@ class Shop extends ChangeNotifier{
   // 添加商品到数据库
   addData(Product product) async {
     var count = await DBManager().insert(product);
-    notifyListeners();
     if (count > 0) {
-      loadAllData();  // 更新数据
+      await loadAllData();
+      _syncWidgetFromDB();
       return "添加成功";
-      } else {
+    } else {
       return "添加失败";
-      }
     }
+  }
     // 搜索商品
     search(String name) async {
       _searchList = await DBManager().find(name);
@@ -112,7 +112,8 @@ class Shop extends ChangeNotifier{
   deleteData(Product product) async {
     var count = await DBManager().delete(product);
     if (count > 0) {
-      loadAllData();  // 更新数据
+      await loadAllData();
+      _syncWidgetFromDB();
       return "删除成功";
     } else {
       return "删除失败";
@@ -123,11 +124,25 @@ class Shop extends ChangeNotifier{
   deleteAllData() async {
     var count = await DBManager().deleteAll();
     if (count > 0) {
-      loadAllData();  // 更新数据
+      await loadAllData();
+      _syncWidgetFromDB();
       return "删除成功";
     } else {
       return "删除失败";
     }
+  }
+
+  /// 从 DB 数据同步小组件
+  void _syncWidgetFromDB() {
+    final list = _productList ?? [];
+    final count = list.length;
+    final total = list.fold<double>(0, (sum, item) => sum + item.price);
+    unawaited(
+      MyHomeWidgetSync.syncCartData(
+        count: count,
+        total: '¥${total.toStringAsFixed(2)}',
+      ),
+    );
   }
   //-------------------//----------------------//
   void updateName(String name) {

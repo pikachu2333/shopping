@@ -18,9 +18,8 @@ class _NotePageState extends State<NotePage> {
   ];
 
   void checkBoxChanged(bool? value, int index) {
-    setState(() {
-      toDoList[index].taskCompleted = !toDoList[index].taskCompleted;
-    });
+    toDoList[index].isCompletedNotifier.value = value ?? false;
+      //等待一秒
   }
 
   void saveNewTask(String text) {
@@ -52,9 +51,7 @@ class _NotePageState extends State<NotePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.background,
-      ),
+      appBar: AppBar(backgroundColor: Theme.of(context).colorScheme.background),
 
       floatingActionButton: FloatingActionButton(
         onPressed: createNewTask,

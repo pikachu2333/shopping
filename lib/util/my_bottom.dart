@@ -9,7 +9,7 @@ class my_bottom extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: onpressed,
-      color: Colors.yellow[100],
+      color: Theme.of(context).colorScheme.background,
       child: Text(text),
     );
   }
